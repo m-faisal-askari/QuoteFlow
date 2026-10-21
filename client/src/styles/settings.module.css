@@ -1,0 +1,218 @@
+.page {
+  padding: 2rem;
+  max-width: 860px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 1rem;
+  }
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.headerTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text, #0f172a);
+  margin-bottom: 0.25rem;
+}
+
+.headerSubtitle {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary, #64748b);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sectionCard {
+  background-color: var(--color-surface, #ffffff);
+  border-radius: var(--radius-lg, 8px);
+  border: 1px solid var(--color-border, #e2e8f0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  padding: 1.75rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+}
+
+.sectionIcon {
+  color: var(--color-primary, #3b82f6);
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text, #0f172a);
+}
+
+.gridTwoCols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .gridTwoCols {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text, #0f172a);
+}
+
+.required {
+  color: var(--color-danger, #ef4444);
+  margin-left: 0.25rem;
+}
+
+.select,
+.textarea,
+.input {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border-radius: var(--radius-md, 6px);
+  border: 1px solid var(--color-border, #e2e8f0);
+  background-color: var(--color-surface, #ffffff);
+  color: var(--color-text, #0f172a);
+  font-size: 0.875rem;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.select:focus,
+.textarea:focus,
+.input:focus {
+  outline: none;
+  border-color: var(--color-primary, #3b82f6);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.textarea {
+  min-height: 85px;
+  resize: vertical;
+}
+
+.helpText {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary, #64748b);
+}
+
+/* Logo Upload Area */
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.logoPreviewWrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius-lg, 8px);
+  border: 2px dashed var(--color-border, #e2e8f0);
+  background-color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.logoImg {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.logoPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--color-text-secondary, #64748b);
+  font-size: 0.75rem;
+}
+
+.logoUploadActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fileInputHidden {
+  display: none;
+}
+
+/* Save Actions */
+.saveBar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Account Profile Card */
+.accountCard {
+  background-color: var(--color-surface, #ffffff);
+  border-radius: var(--radius-lg, 8px);
+  border: 1px solid var(--color-border, #e2e8f0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.userProfileRow {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.userAvatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.userInfo h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text, #0f172a);
+}
+
+.userInfo p {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary, #64748b);
+}

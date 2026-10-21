@@ -1,0 +1,228 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  password      String
+  firstName     String
+  lastName      String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  companyProfile CompanyProfile?
+  customers      Customer[]
+  quotations     Quotation[]
+  invoices       Invoice[]
+  sessions       Session[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  sid       String   @unique
+  data      String
+  expiresAt DateTime
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+}
+
+model CompanyProfile {
+  id                  String   @id @default(cuid())
+  userId              String   @unique
+  user                User     @relation(fields: [userId], references: [id])
+  companyName         String   @default("")
+  email               String   @default("")
+  phone               String   @default("")
+  website             String   @default("")
+  address             String   @default("")
+  city                String   @default("")
+  state               String   @default("")
+  zipCode             String   @default("")
+  country             String   @default("")
+  taxId               String   @default("")
+  logoUrl             String   @default("")
+  defaultCurrency     String   @default("USD")
+  defaultPaymentTerms String   @default("")
+  defaultTaxRate      Float    @default(0)
+  defaultNotes        String   @default("")
+  quotePrefix         String   @default("QT")
+  invoicePrefix       String   @default("INV")
+  nextQuoteNumber     Int      @default(1)
+  nextInvoiceNumber   Int      @default(1)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}
+
+model Customer {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  name        String
+  company     String   @default("")
+  email       String   @default("")
+  phone       String   @default("")
+  address     String   @default("")
+  city        String   @default("")
+  state       String   @default("")
+  zipCode     String   @default("")
+  country     String   @default("")
+  notes       String   @default("")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  quotations  Quotation[]
+  invoices    Invoice[]
+  
+  @@index([userId])
+}
+
+model Quotation {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id])
+  customerId      String?
+  customer        Customer? @relation(fields: [customerId], references: [id])
+  
+  quoteNumber     String
+  status          String   @default("draft") // draft, sent, accepted, rejected, expired, converted
+  issueDate       DateTime @default(now())
+  expiryDate      DateTime?
+  currency        String   @default("USD")
+  
+  // Snapshot of customer info at time of creation
+  customerName    String   @default("")
+  customerCompany String   @default("")
+  customerEmail   String   @default("")
+  customerAddress String   @default("")
+  
+  // Snapshot of company info
+  companyName     String   @default("")
+  companyEmail    String   @default("")
+  companyPhone    String   @default("")
+  companyAddress  String   @default("")
+  companyWebsite  String   @default("")
+  companyLogoUrl  String   @default("")
+  
+  subtotal        Float    @default(0)
+  discountType    String   @default("percentage") // percentage or fixed
+  discountValue   Float    @default(0)
+  discountAmount  Float    @default(0)
+  taxRate         Float    @default(0)
+  taxAmount       Float    @default(0)
+  total           Float    @default(0)
+  
+  notes           String   @default("")
+  paymentTerms    String   @default("")
+  
+  lineItems       QuotationLineItem[]
+  invoice         Invoice?  @relation("QuotationToInvoice")
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  @@unique([userId, quoteNumber])
+  @@index([userId])
+}
+
+model QuotationLineItem {
+  id          String   @id @default(cuid())
+  quotationId String
+  quotation   Quotation @relation(fields: [quotationId], references: [id], onDelete: Cascade)
+  description String
+  quantity    Float    @default(1)
+  unitPrice   Float    @default(0)
+  amount      Float    @default(0)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([quotationId])
+}
+
+model Invoice {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id])
+  customerId      String?
+  customer        Customer? @relation(fields: [customerId], references: [id])
+  quotationId     String?  @unique
+  quotation       Quotation? @relation("QuotationToInvoice", fields: [quotationId], references: [id])
+  
+  invoiceNumber   String
+  status          String   @default("draft") // draft, sent, unpaid, partially_paid, paid, overdue, cancelled
+  issueDate       DateTime @default(now())
+  dueDate         DateTime?
+  currency        String   @default("USD")
+  
+  // Snapshot of customer info
+  customerName    String   @default("")
+  customerCompany String   @default("")
+  customerEmail   String   @default("")
+  customerAddress String   @default("")
+  
+  // Snapshot of company info
+  companyName     String   @default("")
+  companyEmail    String   @default("")
+  companyPhone    String   @default("")
+  companyAddress  String   @default("")
+  companyWebsite  String   @default("")
+  companyLogoUrl  String   @default("")
+  
+  subtotal        Float    @default(0)
+  discountType    String   @default("percentage")
+  discountValue   Float    @default(0)
+  discountAmount  Float    @default(0)
+  taxRate         Float    @default(0)
+  taxAmount       Float    @default(0)
+  total           Float    @default(0)
+  amountPaid      Float    @default(0)
+  balanceDue      Float    @default(0)
+  
+  notes           String   @default("")
+  paymentTerms    String   @default("")
+  
+  lineItems       InvoiceLineItem[]
+  payments        Payment[]
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  @@unique([userId, invoiceNumber])
+  @@index([userId])
+}
+
+model InvoiceLineItem {
+  id          String   @id @default(cuid())
+  invoiceId   String
+  invoice     Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  description String
+  quantity    Float    @default(1)
+  unitPrice   Float    @default(0)
+  amount      Float    @default(0)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([invoiceId])
+}
+
+model Payment {
+  id          String   @id @default(cuid())
+  invoiceId   String
+  invoice     Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  amount      Float
+  date        DateTime @default(now())
+  method      String   @default("")
+  reference   String   @default("")
+  notes       String   @default("")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([invoiceId])
+}

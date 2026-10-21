@@ -1,0 +1,813 @@
+/* ==========================================================================
+   QuoteFlow Premium Editorial Landing Page
+   Clean, bespoke, high-contrast aesthetic (No generic gradients)
+   ========================================================================== */
+
+.page {
+  min-height: 100vh;
+  background-color: #fafafa;
+  color: #0f172a;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --------------------------------------------------------------------------
+   Header / Navigation
+   -------------------------------------------------------------------------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.headerInner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0.875rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  text-decoration: none;
+  color: #0f172a;
+}
+
+.logoImg {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+.brandName {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+
+.brandBadge {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  letter-spacing: 0.02em;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navLink {
+  color: #64748b;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.navLink:hover {
+  color: #0f172a;
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btnText {
+  padding: 0.5rem 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #475569;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+
+.btnText:hover {
+  color: #0f172a;
+  background-color: #f1f5f9;
+}
+
+.btnSolid {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #0f172a;
+  text-decoration: none;
+  border-radius: 6px;
+  border: 1px solid #0f172a;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btnSolid:hover {
+  background-color: #1e293b;
+  border-color: #1e293b;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Section
+   -------------------------------------------------------------------------- */
+.hero {
+  padding: 4.5rem 1.5rem 3rem;
+  max-width: 1240px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.badgePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.875rem;
+  border-radius: 9999px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.badgePillDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #22c55e;
+}
+
+.heroHeadline {
+  font-size: 3.75rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  color: #0f172a;
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+}
+
+.heroSubtitle {
+  font-size: 1.1875rem;
+  line-height: 1.6;
+  color: #64748b;
+  max-width: 680px;
+  margin: 0 auto 2.25rem;
+}
+
+.heroCtaGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.875rem;
+  margin-bottom: 2.75rem;
+  flex-wrap: wrap;
+}
+
+.btnPrimaryLarge {
+  padding: 0.75rem 1.625rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #2563eb;
+  border: 1px solid #2563eb;
+  border-radius: 7px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.2);
+}
+
+.btnPrimaryLarge:hover {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.btnOutlineLarge {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #0f172a;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btnOutlineLarge:hover {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.trustBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: #64748b;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.trustIcon {
+  color: #2563eb;
+}
+
+/* --------------------------------------------------------------------------
+   Interactive Document Workbench (Hero Product Simulator)
+   -------------------------------------------------------------------------- */
+.workbenchSection {
+  max-width: 1120px;
+  margin: 1.5rem auto 5.5rem;
+  padding: 0 1.5rem;
+}
+
+.workbenchCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+  overflow: hidden;
+}
+
+.workbenchTopNav {
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0.625rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.workbenchTabs {
+  display: flex;
+  gap: 0.375rem;
+}
+
+.workbenchTab {
+  padding: 0.45rem 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.15s ease;
+}
+
+.workbenchTabActive {
+  background-color: #ffffff;
+  color: #0f172a;
+  border-color: #e2e8f0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.tabDocCode {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  background-color: #f1f5f9;
+  color: #334155;
+}
+
+.workbenchActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.workbenchStatusSelect {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #0f172a;
+  cursor: pointer;
+}
+
+.workbenchViewBody {
+  padding: 1.75rem 2rem;
+}
+
+.docMetaGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 1.5rem;
+}
+
+.metaLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  margin-bottom: 0.25rem;
+}
+
+.metaValue {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.metaSub {
+  font-size: 0.8125rem;
+  color: #64748b;
+  margin-top: 0.1rem;
+}
+
+.itemTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.itemTh {
+  text-align: left;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #fafafa;
+}
+
+.itemTd {
+  padding: 0.875rem 0.75rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #1e293b;
+}
+
+.itemTdDesc {
+  font-weight: 500;
+}
+
+.itemTdMono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8125rem;
+}
+
+.workbenchFooterRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.workbenchNotes {
+  max-width: 440px;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #64748b;
+  background-color: #f8fafc;
+  padding: 0.875rem 1rem;
+  border-radius: 6px;
+  border-left: 3px solid #2563eb;
+}
+
+.workbenchTotals {
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.totalsLine {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.totalsFinal {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0f172a;
+  padding-top: 0.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.totalsBalance {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #ea580c;
+  padding-top: 0.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   Bento Grid Section (Clean architectural breakdown)
+   -------------------------------------------------------------------------- */
+.section {
+  padding: 5rem 1.5rem;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.sectionHeader {
+  margin-bottom: 3.5rem;
+  text-align: center;
+}
+
+.sectionEyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+}
+
+.sectionDesc {
+  font-size: 1.0625rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+.bentoCol8 {
+  grid-column: span 8;
+}
+
+.bentoCol4 {
+  grid-column: span 4;
+}
+
+.bentoCol6 {
+  grid-column: span 6;
+}
+
+.bentoCard {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bentoCard:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.bentoCardHeader {
+  margin-bottom: 1.5rem;
+}
+
+.bentoIconWrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.bentoTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.bentoDesc {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: #64748b;
+}
+
+.sequenceVisual {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8125rem;
+}
+
+.sequenceStep {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #334155;
+  font-weight: 600;
+}
+
+.sequenceArrow {
+  color: #94a3b8;
+}
+
+.statusPipeline {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+}
+
+.statusPill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.pillDraft { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+.pillSent { background: #eff6ff; color: #2563eb; border: 1px solid #bfdbfe; }
+.pillAccepted { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+.pillConverted { background: #faf5ff; color: #9333ea; border: 1px solid #e9d5ff; }
+.pillPaid { background: #ecfdf5; color: #059669; border: 1px solid #a7f3d0; }
+.pillOverdue { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+
+/* --------------------------------------------------------------------------
+   Comparison Table: Spreadsheets vs QuoteFlow
+   -------------------------------------------------------------------------- */
+.comparisonCard {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.compareTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.compareTh {
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+.compareTd {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #475569;
+}
+
+.compareRowPositive {
+  font-weight: 600;
+  color: #16a34a;
+}
+
+.compareRowNegative {
+  color: #94a3b8;
+}
+
+/* --------------------------------------------------------------------------
+   Call To Action (Clean Solid Slate Box)
+   -------------------------------------------------------------------------- */
+.ctaBox {
+  background-color: #0f172a;
+  border-radius: 14px;
+  padding: 4.5rem 2.5rem;
+  text-align: center;
+  color: #ffffff;
+  margin: 4rem auto;
+  max-width: 1120px;
+}
+
+.ctaHeadline {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin-bottom: 0.875rem;
+}
+
+.ctaParagraph {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  max-width: 580px;
+  margin: 0 auto 2.25rem;
+}
+
+.ctaButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btnCtaWhite {
+  padding: 0.75rem 1.625rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  background-color: #ffffff;
+  color: #0f172a;
+  border: 1px solid #ffffff;
+  border-radius: 7px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btnCtaWhite:hover {
+  background-color: #f1f5f9;
+}
+
+.btnCtaOutline {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 7px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btnCtaOutline:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.footer {
+  border-top: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  padding: 3rem 1.5rem 2rem;
+}
+
+.footerInner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footerCopy {
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+.footerRight {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footerNavLink {
+  font-size: 0.8125rem;
+  color: #64748b;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footerNavLink:hover {
+  color: #0f172a;
+}
+
+.dbPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #16a34a;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.dbDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #16a34a;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .bentoCol8, .bentoCol4, .bentoCol6 {
+    grid-column: span 12;
+  }
+  .docMetaGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .heroHeadline {
+    font-size: 2.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .navLinks {
+    display: none;
+  }
+  .heroHeadline {
+    font-size: 2.25rem;
+  }
+  .workbenchTopNav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
